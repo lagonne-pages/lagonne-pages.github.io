@@ -121,3 +121,21 @@ home-mixer と value model の重み一覧に、ハッシュタグの有無や�
 - 上位アカウントの選定は事前知識ベースで、代表性は限られる。
 
 判断が変わるのは、本番の重みの確認、外部リンクだけの比較、事前知識に依らない反応上位の抽出である。
+
+## 参考文献・出典
+
+公開コードはすべて xai-org/x-algorithm の固定コミットへのリンクである（2026年11月15日確認）。
+
+1. [README の採点式（コミット 30647a85、365行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/README.md#L365)
+2. [予測確率に重みを掛ける関数（xai-value-model/scoring.rs 32–58行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/xai-value-model/scoring.rs#L32-L58)
+3. [いいね・返信・相互フォロー返信の既定値（home-mixer/params/param.rs 447–459行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/home-mixer/params/param.rs#L447-L459)
+4. [引用・興味なし・通報の既定値（同 502–570行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/home-mixer/params/param.rs#L502-L570)
+5. [「リンクをコピー」の既定値を 20.0 から 0.0 にしたコミット 590f3926](https://github.com/xai-org/x-algorithm/commit/590f3926e5bc33c50d9ece13953623e1e75ee595)
+6. [「リンクをコピー」の現在の既定値（param.rs 495–500行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/home-mixer/params/param.rs#L495-L500)
+7. [vm-ranker 側に残る 20.0（vm-ranker/params.rs 34–39行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/vm-ranker/params.rs#L34-L39)
+8. [スパムラベル SpamHashTagAbuse（grox/flows/ptos/state.py 40行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/grox/flows/ptos/state.py#L40)
+9. [通報の選択肢 SpamReportFlow.Hashtag（FeaturesOfInAppReport.java 32行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/botmaker/scarecrow_features/src/main/java/com/twitter/scarecrow/features/FeaturesOfInAppReport.java#L32)
+10. [ハッシュタグ最大4個（TweetEntityExtractor.scala 14–40行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/simclusters/simclusters_v2/summingbird/common/TweetEntityExtractor.scala#L14-L40)
+11. [重みは feature switch の既定値の写しという注記（param.rs 1–2行）](https://github.com/xai-org/x-algorithm/blob/30647a85a20cbdd114169beb9973680c4dc4f401/home-mixer/params/param.rs#L1-L2)
+
+観察データ（日本語AI話題アカウント695件の垢内比較、1アカウントの自己点検、上位22アカウントの文体実測、通説128件の分類）は筆者の手元集計で、個別の投稿やアカウントを特定できる形では公開していない。
